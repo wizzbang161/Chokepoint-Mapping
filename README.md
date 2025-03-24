@@ -1,13 +1,29 @@
 # Chokepoint Mapping
 
 ## What is Chokepoint Mapping?
+Chokepoint Mapping is a methodology, primarily devised to assist Threat Hunters, that enalables prioritizing your work by the amount of pain it inflicts upon an adversary's attack path. To accomplish this, Chokepoint Mapping uses two concepts native to Graph Theory: Betweenness Centrality and Eccentricity.
 
-Chokepoint Mapping is a methodology, primarily devised to assist Threat Hunters, that emphasizes prioritizing your work by the amount of pain it inflicts upon an adversary's attack path. To accomplish this, Chokepoint Mapping uses two concepts native to Graph Theory: Betweenness Centrality and Eccentricity.
+### What problem is this meant to address?
+This methodology was created to address one of the biggest challenges Threat Hunters face: volume of potential projects. For Threat Hunters following a TaHiTI Structured Hunt approach, the raw number of potential targets to work on is staggering, intimidating, and almost universally lacking useful context. Chokepoint Mapping is intended to asist us by solving this problem while meeting 3 core criteria.
 
-This methodology was created to address one of the biggest challenges Threat Hunters face: volume of potential projects. For Threat Hunters following a TaHiTI Structured Hunt approach, the raw number of potential targets to work on is staggering, intimidating, and almost universally lacking useful context. Chokepoint Mapping assists us by providing a tool to measure, with numbers, the direct impact on the adversary our proactive approach produces and does so in a way that is visually intuitive and easy to digest across the Security heirarchy.
+#### How we should judge this as a solution to the problem
+Chokepoint Mapping was developed (is developing?) to meet 3 criteria:
+1. It should show Threat Hunting's unique value as a proactive discipline focused on impacting the adversary rather than bolstering the network.
+2. It should measure #1.
+3. It should be intuitive and easily understood regardless of technical background.
 
-### Betweenness Centrality
+## What does it need to work?
+
+Chokepoint Mapping needs a two things to function:
+1. A graph database or link analysis tool that support directionality. [Gephi](https://gephi.org/) is a great free tool to start with!
+2. Intelligence that arranges attacks in chronological order.
+3. Basic data science capability (Betweenness Centrality and Eccentricity, specifically).
+
+### A Graph Database
+Graph databases with some basic data science functionality will allow us to actually paint a picture of 
+
+#### Betweenness Centrality
 Roughly put, _Betweenness Centrality_ measures for us the relative importantance of a given technique for an adversary's attack path. The more variations of an attack path that run through a given node, the higher its score. As Defenders, we want to shut down nodes with the biggest scores and avoid working on nodes with small (or absent) scores.
 
-### Eccentricity
+#### Eccentricity
 Eccentricity in a directed, A-to-Z style graph measures how far from the end of the graph the node sits. Essentially, the closer the node is to the very last step in an attack path, the lower its number. Given that Defenders want to shut down attacks as early as possible, we want to focus on nodes that score high.
