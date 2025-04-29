@@ -1,0 +1,40 @@
+Id,Label,ATT&CK id,ATT&CK Tactic,Source,Eccentricity,closnesscentrality,harmonicclosnesscentrality,betweenesscentrality,Detection Present,Mitigation Present
+0,user downloads setup_wm.exe,T1566.002,Initial Access,https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/,14,0.12013,0.175087,37,N,N
+1,user executes setup_wm.exe,T1204.002,Execution,https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/,13,0.132841,0.206173,72,N,N
+2,setup_wm.exe mimics real Window exe name and icon,T1036.005,Defense Evasion,https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/,0,0,0,0,N,N
+3,START,N/A,N/A,N/A,15,0.109827,0.158726,0,N,N
+4,END,N/A,N/A,N/A,0,0,0,0,N,N
+5,setup_wm.exe contacts C2 as a BEACON,T1102,Command and Control,https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/,12,0.144681,0.215875,102,N,N
+6,uses nltest to identify DCs,T1482,Discovery,https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/,11,0.159204,0.220314,128,N,N
+7,uses SMB to deploy SystemBC and GhostSOCKS on a DC,T1021.002,Lateral Movement,https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/,10,0.183432,0.28021,155,N,N
+8,injects code into WUAUCLT.exe to get creds from LSASS,T1055,Privilege Escalation,https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/,9,0.202899,0.290958,168,N,N
+9,WUAUCLT.exe loads Seatbelt and SharpView CLR,T1105,Command and Control,https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/,0,0,0,0,N,N
+10,WUAUCLT.exe creates scheduled tasks for persistence,T1053.005,Persistence,https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/,0,0,0,0,N,N
+11,moves laterally to file server via remote services,T1021,Lateral Movement,https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/,8,0.227273,0.276429,175,N,N
+12,sets up BEACON on file server,T1055,Defense Evasion,https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/,7,0.282353,0.35248,192,N,N
+13,file server BEACON contacts new C2,T1102,Command and Control,https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/,3,0.458333,0.5,99,N,N
+14,RDPs into file server from external source,T1021.001,Lateral Movement,https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/,2,0.769231,0.85,100,N,N
+15,examines running processes with Task Manager,T1057,Discovery,https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/,1,1,1,11,N,N
+16,changes Defender settings via Local Group Policy Editor,T1562.001,Defense Evasion,https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/,0,0,0,0,N,N
+17,accesses credentials in found document,T1087,Discovery,https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/,0,0,0,0,N,N
+18,runs remote WMI command from beachhead to disable Defender on file server,T1562.001,Defense Evasion,https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/,0,0,0,0,N,N
+19,uses remote PS Session to run AD recon commands,T1021,Lateral Movement,https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/,1,1,1,11,N,N
+20,uses remote PS Session to run AD recon commands,T1083,Discovery,https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/,0,0,0,0,N,N
+21,runs check.exe on file server to conduct Discovery for remote hosts,T1018,Discovery,https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/,6,0.297297,0.384848,99,N,N
+22,RDPs to backup server,T1021.001,Lateral Movement,https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/,5,0.384615,0.536667,100,N,N
+23,deploys GhostSOCKS proxy,T1090.001,Command and Control,https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/,0,0,0,0,N,N
+24,creates scheduled tasks for persistence,T1053.005,Persistence,https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/,0,0,0,0,N,N
+25,uses Internet Explorer on the file server to access several temporary file-sharing sites,T1567.002,Exfiltration,https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/,0,0,0,0,N,N
+26,uses rclone for exfil,T1048,Exfiltration,https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/,1,1,1,11,N,N
+27,uses FTP for exfil,T1048,Exfiltration,https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/,0,0,0,0,N,N
+31,accesses NTDS.dit,T1003.003,Credential Access,https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/,0,0,0,0,N,N
+29,exfils to mega.io with rclone,T1071.001,Command and Control,https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/,0,0,0,0,N,N
+30,reviews DNS configs with DNS Manager on DC,T1018,Discovery,https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/,0,0,0,0,N,N
+32,runs PowerShell script on file server to extract creds from backup software,T1555,Credential Access,https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/,0,0,0,0,N,N
+33,drops multiple batch scripts designed to automate ransomware deployment,T1105,Command and Control,https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/,4,0.4375,0.559524,77,N,N
+34,uses PsExec to deploy ransomware laterally,T1105,Command and Control,https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/,3,0.555556,0.666667,30,N,N
+35,uses BITSAdmin to deploy ransomware laterally,T1105,Command and Control,https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/,3,0.555556,0.666667,30,N,N
+36,executes ransomware remotely with WMI,T1486,Impact,https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/,1,1,1,8,N,N
+37,executes ransomware remotely with PsExec,T1486,Impact,https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/,1,1,1,8,N,N
+38,uses scripts to disable Defender across the network,T1562.001,Defense Evasion,https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/,2,0.75,0.833333,21,N,N
+39,uses scripts to modify RDP settings across the network,T1562,Defense Evasion,https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/,2,0.75,0.833333,21,N,N
