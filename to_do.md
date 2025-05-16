@@ -5,7 +5,7 @@ README
 1. Describe problem statement. DONE
 2. Describe 3 objectives of the solution. DONE
 3. Describe tool components. DONE
-4. Describe building considerations.
+4. Describe building considerations. DONE
 5. Define usage for prioritization of hunts.
 6. Example walkthrough.
 
