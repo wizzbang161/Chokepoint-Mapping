@@ -83,7 +83,7 @@ First and foremost, remember two things about this methodology:
 ### Use those data science functions!
 Now that the graph is built, run those data science functions to populate both _betweenness centrality_ and _eccentricity_ values for each node. Once that is done, feel free to attack the problem in any way you wish. Seeing as the graph database comes with the added benefit of always being visually intuitive, I'd recommend the following:
 
-![image](https://github.com/user-attachments/assets/c768ddc8-db30-4f7e-a0dd-73676484c0a3)
+![image](https://github.com/user-attachments/assets/7f35150f-f136-4bb3-a0ff-47b823d342d2)
 
 #### The Red X
 In the above example, use whatever method you prefer (excel ranking of raw metrics, overlaying metrics on the graph, heat mapping the metrics, just eyeballing it) to roughly rank each node. Nodes similar to the red 'X' are very undesireable, as they are completely optional for an adversary, as the attack path can succeed without them. Even if they are close to the beginning of the attack path, the low betweenness value (0) immediately ranks this type of work as lowest priority.
