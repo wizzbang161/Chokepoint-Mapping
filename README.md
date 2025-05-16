@@ -1,5 +1,9 @@
 # Chokepoint Mapping
 
+
+<img width="1091" alt="image" src="https://github.com/user-attachments/assets/c496e25c-e569-4d60-b1e2-5c8c14929ea9" />
+
+
 ## What is Chokepoint Mapping?
 Chokepoint Mapping is a methodology, primarily devised to assist Threat Hunters, that enalables prioritizing your work by the amount of pain it inflicts upon an adversary's attack path. To accomplish this, Chokepoint Mapping uses two concepts native to Graph Theory: Betweenness Centrality and Eccentricity.
 
@@ -11,6 +15,8 @@ Chokepoint Mapping was developed (is developing?) to meet 3 criteria:
 1. It should show Threat Hunting's unique value as a proactive discipline focused on impacting the adversary rather than bolstering the network.
 2. It should measure #1.
 3. It should be intuitive and easily understood regardless of technical background.
+
+
 
 ## What does it need to work?
 
@@ -38,6 +44,8 @@ Roughly put, _Betweenness Centrality_ measures for us the relative importantance
 #### Eccentricity
 Eccentricity in a directed, A-to-Z style graph measures how far from the end of the graph the node sits. Essentially, the closer the node is to the very last step in an attack path, the lower its number. Given that Defenders want to shut down attacks as early as possible, we want to focus on nodes that score high.
 
+
+
 ## What do I need to keep in mind as I build it?
 
 #### Never give the Adversary the benefit of the doubt
@@ -57,8 +65,31 @@ Other types of information can be usefully represented as nodes in a graph datab
 
 #### Multiple necessary techniques occuring simultaneously due to the same action.
 For example: An initial payload script that Discovers local admin accounts, disables key defenses, and calls back for the second stage payload may appear tempting to represent by connecting each technique directly to the original script's execution node. This, however, is interpreted by our math as each technique being _independent_ of each other in reaching the final step in the attack path. As these are all actually _dependent_ upon each other, it is preferred to connect them all in a line, with only one node directly connected to the original script. Example below:
+
 ![image](https://github.com/user-attachments/assets/503501c0-c9b5-46a2-8020-ecfd4bfd2119)
 
 #### Optional Branches
 Not all techniques are required to succeed for the adversary to move from Initial Access to Impact. When this is the case, you'll want to branch that optional technique away from the main line of activity where it terminates by itself. Whenever this is the case, you will break one of the cardinal rules mentioned earlier and ensure that every optional branch node has a directional relationship going back to the main line. This will ensure a more accurate rating for Eccentricity. Example below:
+
 ![image](https://github.com/user-attachments/assets/dabf6042-bd95-4197-808b-b0b54cf74064)
+
+
+
+## How do I use it once it's built?
+First and foremost, remember two things about this methodology:
+1. This is not intended to be a 1:1 representation of reality.
+2. This is intended to _avoid the worst project_ not necessarily identify the _best_ projects.
+
+### Use those data science functions!
+Now that the graph is built, run those data science functions to populate both _betweenness centrality_ and _eccentricity_ values for each node. Once that is done, feel free to attack the problem in any way you wish. Seeing as the graph database comes with the added benefit of always being visually intuitive, I'd recommend the following:
+
+![image](https://github.com/user-attachments/assets/c768ddc8-db30-4f7e-a0dd-73676484c0a3)
+
+#### The Red X
+In the above example, use whatever method you prefer (excel ranking of raw metrics, overlaying metrics on the graph, heat mapping the metrics, just eyeballing it) to roughly rank each node. Nodes similar to the red 'X' are very undesireable, as they are completely optional for an adversary, as the attack path can succeed without them. Even if they are close to the beginning of the attack path, the low betweenness value (0) immediately ranks this type of work as lowest priority.
+
+#### The Yellow Square
+This is a slightly more desireable project, as it has a high betweenness value. Unfortunately, it's _very_ late in the attack path. The adversary would likely be well on their way to success by this point! This is still better than the Red X as removing it disables progression until the adversary can develop a workaround.
+
+#### The Green Circle
+This is the platonic ideal of what good work should look like: It is near the beginning of the attack path (high eccentricity) and also possesses a good betweenness value. Put simply: it would be very painful for an adversary to lose because of it's mandatory nature and how close to the beginning it is.
