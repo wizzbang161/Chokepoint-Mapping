@@ -6,8 +6,8 @@ README
 2. Describe 3 objectives of the solution. DONE
 3. Describe tool components. DONE
 4. Describe building considerations. DONE
-5. Define usage for prioritization of hunts.
-6. Example walkthrough.
+5. Define usage for prioritization of hunts. DONE
+6. Example walkthrough?
 
 EXAMPLE FILES
 1. Create test dataset. DONE
