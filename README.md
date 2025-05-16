@@ -1,6 +1,10 @@
 # Chokepoint Mapping
-
-
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 <img width="1091" alt="image" src="https://github.com/user-attachments/assets/c496e25c-e569-4d60-b1e2-5c8c14929ea9" />
 
 
@@ -15,8 +19,12 @@ Chokepoint Mapping was developed (is developing?) to meet 3 criteria:
 1. It should show Threat Hunting's unique value as a proactive discipline focused on impacting the adversary rather than bolstering the network.
 2. It should measure #1.
 3. It should be intuitive and easily understood regardless of technical background.
-
-
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 
 ## What does it need to work?
 
@@ -43,7 +51,12 @@ Roughly put, _Betweenness Centrality_ measures for us the relative importantance
 
 #### Eccentricity
 Eccentricity in a directed, A-to-Z style graph measures how far from the end of the graph the node sits. Essentially, the closer the node is to the very last step in an attack path, the lower its number. Given that Defenders want to shut down attacks as early as possible, we want to focus on nodes that score high.
-
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 
 
 ## What do I need to keep in mind as I build it?
@@ -72,7 +85,12 @@ For example: An initial payload script that Discovers local admin accounts, disa
 Not all techniques are required to succeed for the adversary to move from Initial Access to Impact. When this is the case, you'll want to branch that optional technique away from the main line of activity where it terminates by itself. Whenever this is the case, you will break one of the cardinal rules mentioned earlier and ensure that every optional branch node has a directional relationship going back to the main line. This will ensure a more accurate rating for Eccentricity. Example below:
 
 ![image](https://github.com/user-attachments/assets/dabf6042-bd95-4197-808b-b0b54cf74064)
-
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 
 
 ## How do I use it once it's built?
@@ -93,3 +111,30 @@ This is a slightly more desireable project, as it has a high betweenness value. 
 
 #### The Green Circle
 This is the platonic ideal of what good work should look like: It is near the beginning of the attack path (high eccentricity) and also possesses a good betweenness value. Put simply: it would be very painful for an adversary to lose because of it's mandatory nature and how close to the beginning it is.
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+## Show Your Work with Metrics!
+As this methodology produces actual metrics, we can use these to illustrate exactly how impactful our efforts are.
+
+### Why are the numbers so important?
+Because they fulfill the second of our criteria: they _measure_ Hunt's unique contribution to security. A useful way of thinking about this is thinking of the _betweenness centrality_ value as a number provided by the adversary about how valuable that technique is to them. As we give the adversary no benefit of the doubt, we can say that every single technique on a map is there explicitly because an adversary chose that technique as the best means of accomplishing their task. With this methodology, we take them at their word and are able to assign a number to that value judgment. Having that, we can very directly align ourselves with how much pain we cause the adversary.
+
+Here are a few ideas:
+
+<img width="556" alt="image" src="https://github.com/user-attachments/assets/82a257f2-9594-433a-8ff4-c0a1f28fb967" />
+
+This graph shows the distrubution of the _betweenness centrality_ value for each node in our example graph. The average of all of these values is represented by the yellow dot. The average value for all of the nodes that were _hunted_ are in green.
+
+The value of this graph can come from several angles:
+1. Our efforts have ~60% more impact on the adversary compared to choosing them purely through subjective means. If we had picked our projects blindly, or based on what was in the news or what our CISO heard from their friend, our projects would likely have been _measurably less painful for the adversary_. This will often be a significant value, based on experience, sometimes more than a 100% improvement!
+2. It demonstrates how well postured we are against this adversary in terms of defense-in-depth. It's possible that a very predictable campaign that is already heavily defended against results in hunts that _appear_ less valuable than average, but that will be influenced by how thorough your defense-in-depth already is.
+
+<img width="563" alt="image" src="https://github.com/user-attachments/assets/e96a940e-9075-40cd-a035-ca6aa20b8dbc" />
+
+This graphs shows the distribution of the _eccentricity_ value for each node in our example graph. While not as immediately useful as the first example, over time it will tell us more valuable information. Specifically, it is often very noticeable how a 'center of gravity' tends to exist in each campaign. In our exmaple, it appears around an eccentricity of 10. This means that your own average will likely hover right around the same value as there are simply more choices at that distance from the end of the attack path.
