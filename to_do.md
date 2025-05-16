@@ -16,5 +16,5 @@ EXAMPLE FILES
 2. Select graph database/link analysis tools to demo it in. DONE
 
 METRICS
-1. Create example metric visuals.
-2. Discuss/define/contextualize example metric visuals.
+1. Create example metric visuals. DONE
+2. Discuss/define/contextualize example metric visuals. DONE
